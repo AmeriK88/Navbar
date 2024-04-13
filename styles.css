@@ -1,0 +1,137 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
+
+/* Eliminamos margenes por defecto */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    
+    font-family: "Monserrat", sans-serif;
+}
+
+body{
+    background: rgb(145, 140, 140);
+}
+/* Estilos para el encabezado */
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 30px 10%;
+    
+}
+/* Estilos para los enlaces de navegación */
+li, a, button {
+    font-weight: 500;
+    font-size: 16px;
+    color: #eee;
+    text-decoration: none;
+}
+/* Estilos para el logotipo */
+.logo {
+    cursor: pointer;
+    max-width: 120px;
+    margin-right: auto;
+    border-radius: 16px 32px 16px 32px;  
+}
+/* Estilos para enlaces de navegación */
+nav {
+    order: 1;
+}
+.nav-links {
+    list-style: none;
+    display: inline-flex; /* Evita el bloque */
+}
+.nav-links li {
+    display: inline-block;
+    padding: 0 25px;
+    opacity: 0.8; /* Reduce la opacidad para un aspecto más elegante */
+}
+.nav-links li a {
+    transition: all 0.3s ease  0s;
+    font-weight: bold;
+    letter-spacing: 2px;
+}
+.nav-links li a:hover {
+    color: #0088a9;
+}
+/* Estilos para el botón */
+button {
+    margin-left: 25px;
+    padding: 9px 24px;
+    background-color: #108aa8;
+    border: none;
+    border-radius: 40px;
+    cursor: pointer;
+    transition: all 0.3s ease  0s;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+button:hover {
+    background-color: #19afd4;
+}
+.burger {
+    display: none;
+    cursor: pointer;
+}
+.burger div{
+    background-color: #eee;
+    height: 2px;
+    margin: 7px 35px;
+    width: 26px;
+}
+
+/* Estilos para la versión móvil */
+@media screen and (max-width: 1024px) {
+    .nav-links {
+        width: 35%;
+        /* añadimos inline-flex para evitar bloque */
+        
+    }
+}
+
+@media screen and (max-width: 760px) {
+    body {
+        /* para evitar que se vea el menú haciendo scroll*/
+        overflow-x: hidden;
+    }
+    .nav-links {
+        position: absolute;
+        right: 0px;
+        height: 82vh;
+        top: 18vh;
+        background-color: rgba(177, 176, 176, 0.9);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 50px;
+        border-radius: 10px 0;
+        transform: translateX(100%); /* Así movemos el menú responsivo */
+        transition: transform 0.5s ease-in;
+    }
+    .nav-links li {
+        opacity: 1;
+        margin: 100px;
+    }
+
+    .burger {
+        display: block;
+        
+    }
+}
+
+.nav-active{
+    transform: translateX(0%);
+}
+
+/* Añadimos animaciones para los links */
+@keyframes navLinkFade{
+    from{
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0px);
+    }
+}
